@@ -62,10 +62,21 @@
                                         <a class="dropdown-item" href="{{ url('/user/'.Auth::id().'/posts') }}">My Posts</a>
                                     </li>
                                     <li>
+                                        <a class="dropdown-item" href="{{ url('/my-drafts') }}">My Drafts</a>
+                                    </li>
+                                    <li>
                                         <a class="dropdown-item" href="{{ url('/user/'.Auth::id()) }}">My Profile</a>
                                     </li>
                                     <li>
-                                        <a class="dropdown-item" href="{{ url('/auth/logout') }}">Logout</a>
+                                        <a class="dropdown-item" href="{{ route('logout') }}"
+                                           onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                            {{ __('Logout') }}
+                                        </a>
+
+                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                            @csrf
+                                        </form>
                                     </li>
                                 </ul>
                             </li>
@@ -74,18 +85,15 @@
                 </div>
             </div>
         </nav>
-
-        <main class="py-4">
+        <main class="container py-4">
             @if (Session::has('message'))
-                <div class="flash alert-info">
-                    <p class="panel-body">
+                <div class="alert alert-info">
                         {{ Session::get('message') }}
-                    </p>
                 </div>
             @endif
             @if ($errors->any())
-                <div class='flash alert-danger'>
-                    <ul class="panel-body">
+                <div class='alert alert-danger'>
+                    <ul>
                         @foreach ( $errors->all() as $error )
                             <li>
                                 {{ $error }}
@@ -95,15 +103,12 @@
                 </div>
             @endif
             <div class="row">
-                <div class="col-md-10 col-md-offset-1">
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            <h2>@yield('title')</h2>
-                            @yield('title-meta')
-                        </div>
-                        <div class="panel-body">
-                            @yield('content')
-                        </div>
+                <div class="card w-100">
+                    <div class="card-body">
+                        <h3 class="card-title">@yield('title')</h3>
+                        <p class="card-subtitle">@yield('title-meta')
+                        </p>
+                        @yield('content')
                     </div>
                 </div>
             </div>
