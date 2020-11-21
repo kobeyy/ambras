@@ -20,10 +20,6 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [PostController::class, 'index']);
 Route::get('/home', [PostController::class, 'index']) -> name('home');
 
-Route::get('/{slug}', [PostController::class, 'show'])->where('slug', '[A-Za-z0-9-_]+')->name('post');
-Route::get('user/{id}', [UserController::class, 'profile'])->where('id', '[0-9]+');
-Route::get('user/{id}/posts',  [UserController::class, 'user_posts'])->where('id', '[0-9]+');
-Route::post('comment/add', [CommentController::class, 'store']);
 Auth::routes();
 
 Route::middleware(['auth'])->group(function () {
@@ -41,5 +37,9 @@ Route::middleware(['auth'])->group(function () {
     Route::get('my-all-posts', [UserController::class, 'user_posts_all']);
     // display user's drafts
     Route::get('my-drafts', [UserController::class, 'user_posts_draft']);
-
 });
+
+Route::get('/{slug}', [PostController::class, 'show'])->where('slug', '[A-Za-z0-9-_]+')->name('post');
+Route::get('user/{id}', [UserController::class, 'profile'])->where('id', '[0-9]+');
+Route::get('user/{id}/posts',  [UserController::class, 'user_posts'])->where('id', '[0-9]+');
+Route::post('comment/add', [CommentController::class, 'store']);

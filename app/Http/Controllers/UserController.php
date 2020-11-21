@@ -18,7 +18,7 @@ class UserController extends Controller {
         //
         $posts = Post::where('author_id',$id)->where('active',1)->orderBy('created_at','desc')->paginate(5);
         $title = User::find($id)->name;
-        return view('home')->withPosts($posts)->withTitle($title);
+        return view('postlist')->withPosts($posts)->withTitle($title);
     }
     /*
      * Display all of the posts of a particular user
@@ -32,7 +32,7 @@ class UserController extends Controller {
         $user = $request->user();
         $posts = Post::where('author_id',$user->id)->orderBy('created_at','desc')->paginate(5);
         $title = $user->name;
-        return view('home')->withPosts($posts)->withTitle($title);
+        return view('postlist')->withPosts($posts)->withTitle($title);
     }
     /*
      * Display draft posts of a currently active user
@@ -45,7 +45,7 @@ class UserController extends Controller {
         $user = $request->user();
         $posts = Post::where('author_id',$user->id)->where('active',0)->orderBy('created_at','desc')->paginate(5);
         $title = $user->name;
-        return view('home')->withPosts($posts)->withTitle($title);
+        return view('postlist')->withPosts($posts)->withTitle($title);
     }
     /**
      * profile for user
