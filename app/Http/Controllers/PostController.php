@@ -89,7 +89,6 @@ class PostController extends Controller
 
     public function destroy(Request $request, $id)
     {
-        //
         $post = Post::find($id);
         if($post && ($post->author_id == $request->user()->id))
         {
@@ -115,6 +114,7 @@ class PostController extends Controller
         {
             return redirect('/')->withErrors('requested page not found');
         }
+        $post -> comments = $post -> comments -> sortByDesc('created_at');
         return view('posts.show')->with('post', $post)->with('comments', $post->comments);
 
     }

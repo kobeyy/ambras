@@ -11,15 +11,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1d0c7f33-dd2e-409d-bf6f-d43c93750c97" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/resources/views/postlist.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/mail/commentAdded.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/CommentController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/CommentController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/PostController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/PostController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/UserController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/home.blade.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/profile.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/profile.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Mail/CommentOnPost.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Mail/CommentOnPost.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/mail.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/mail.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/posts/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/posts/show.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -164,6 +162,10 @@
       <path value="$PROJECT_DIR$/vendor/defuse/php-encryption" />
       <path value="$PROJECT_DIR$/vendor/psr/http-factory" />
       <path value="$PROJECT_DIR$/vendor/laravel/ui" />
+      <path value="$PROJECT_DIR$/vendor/nuwave/lighthouse" />
+      <path value="$PROJECT_DIR$/vendor/webonyx/graphql-php" />
+      <path value="$PROJECT_DIR$/vendor/haydenpierce/class-finder" />
+      <path value="$PROJECT_DIR$/vendor/mll-lab/laravel-graphql-playground" />
     </include_path>
   </component>
   <component name="ProjectCodeStyleSettingsMigration">
@@ -226,10 +228,10 @@
       <screen x="0" y="27" width="1920" height="1000" />
     </state>
     <state x="100" y="97" width="1720" height="830" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.27.1920.1000@0.27.1920.1000" timestamp="1605977486695" />
-    <state x="651" y="251" width="618" height="522" key="find.popup" timestamp="1605982485691">
+    <state x="651" y="251" width="618" height="522" key="find.popup" timestamp="1606035876058">
       <screen x="0" y="27" width="1920" height="1000" />
     </state>
-    <state x="651" y="251" width="618" height="522" key="find.popup/0.27.1920.1000@0.27.1920.1000" timestamp="1605982485691" />
+    <state x="651" y="251" width="618" height="522" key="find.popup/0.27.1920.1000@0.27.1920.1000" timestamp="1606035876058" />
     <state x="623" y="223" width="672" height="678" key="search.everywhere.popup" timestamp="1605958995804">
       <screen x="0" y="27" width="1920" height="1000" />
     </state>

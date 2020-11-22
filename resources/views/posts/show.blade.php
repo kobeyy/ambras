@@ -38,6 +38,7 @@ Page does not exist
                 {{ $comment->body }}
             </div>
         </div>
+        <hr>
         @endforeach
     @else
         <span>No comments for this post</span>
