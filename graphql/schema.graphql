@@ -38,3 +38,4 @@ type Comment {
     post: Post! @belongsTo
 }
 
+"TODO: inserts"
