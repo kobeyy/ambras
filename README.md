@@ -2,8 +2,12 @@
 Laravel based blog with graphql API support.
 
 
-## add dummpy data
-`php artisan db:seed`
+## Setup database
+1. create sqlite db
+    ```
+   touch database/database.sqlite
+   ```
+2. populate with dumy data `php artisan db:seed`
 
 ## generate oauth client
 1. `php artisan passport:client --password`

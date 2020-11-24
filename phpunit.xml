@@ -4,6 +4,7 @@
          bootstrap="vendor/autoload.php"
          colors="true"
 >
+    <!-- TODO add more tests in the futer -->
     <testsuites>
         <testsuite name="Unit">
             <directory suffix="Test.php">./tests/Unit</directory>
