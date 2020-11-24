@@ -34,10 +34,9 @@ Page does not exist
         @foreach($comments as $comment)
         <div class="media">
             <div class="media-body">
-                <span class="text-muted float-right">{{ $comment->created_at->format('M d,Y \a\t h:i a') }}</span>
                 @if(!Auth::guest() && ($post->author_id == Auth::user()->id))
-                    <div class="btn-group">
-                        <button class="btn btn-danger btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <div class="btn-group float-right mx-2">
+                        <button class="btn btn-outline-danger btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Action
                         </button>
                         <form class="form-inline" method="post" action="/comment/delete/{{$comment->id}}">
@@ -50,7 +49,9 @@ Page does not exist
                         </form>
                     </div>
                 @endif
-                {{ $comment->body }}
+                    <span class="text-muted float-right">{{ $comment->created_at->format('M d,Y \a\t h:i a') }}</span>
+
+                    {{ $comment->body }}
             </div>
         </div>
         <hr>

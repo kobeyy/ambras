@@ -3,6 +3,15 @@
     Add New Post
 @endsection
 @section('content')
+    <script src='https://cdn.tiny.cloud/1/f7ljd8zokrh74bmfw3c09j6p3fg1xqumaykbwydls4rnnlj0/tinymce/5/tinymce.min.js' referrerpolicy="origin"></script>
+    <script type="text/javascript">
+        tinymce.init({
+            height : "480",
+            selector : "textarea",
+            plugins : ["advlist autolink lists link image charmap print preview anchor", "autoresize", "searchreplace visualblocks code fullscreen", "insertdatetime media table contextmenu paste"],
+            toolbar : "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image"
+        });
+    </script>
     <form action="/new-post" method="post">
         <input type="hidden" name="_token" value="{{ csrf_token() }}">
         <div class="form-group">

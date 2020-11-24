@@ -2,6 +2,9 @@
 Laravel based blog with graphql API support.
 
 
+## add dummpy data
+`php artisan db:seed`
+
 ## generate oauth client
 1. `php artisan passport:client --password`
 2. Copy client ID and secret to .env file.  

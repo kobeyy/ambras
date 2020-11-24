@@ -35,7 +35,7 @@ class CommentController extends Controller {
         $this->sendCommentMail($post, $comment);
         return redirect($slug)->with('message', 'Comment published');
     }
-
+    # TODO add mail queue to remove delay
     private function sendCommentMail(Post $post, Comment $comment) {
         Mail::to($post -> author)->send(new CommentOnPost($comment, $post));
     }

@@ -12,7 +12,6 @@ class PostController extends Controller
         $posts = Post::where('active',1)->orderBy('created_at','desc')->paginate(5);
         //page heading
         $title = 'Latest Posts';
-        //return postlist.blade.php template from resources/views folder
         return view('postlist')->withPosts($posts)->withTitle($title);
     }
     public function store(Request $request)

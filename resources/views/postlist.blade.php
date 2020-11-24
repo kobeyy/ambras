@@ -26,6 +26,8 @@
             </div>
 
         @endforeach
-        {!! $posts->render() !!}
+        <div class="d-flex justify-content-center">
+            {{ $posts->links() }}
+        </div>
     @endif
 @endsection
