@@ -37,6 +37,8 @@ Route::middleware(['auth'])->group(function () {
     Route::get('my-all-posts', [UserController::class, 'user_posts_all']);
     // display user's drafts
     Route::get('my-drafts', [UserController::class, 'user_posts_draft']);
+    Route::post('comment/delete/{id}', [CommentController::class, 'destroy']);
+
 });
 
 Route::get('/{slug}', [PostController::class, 'show'])->where('slug', '[A-Za-z0-9-_]+')->name('post');

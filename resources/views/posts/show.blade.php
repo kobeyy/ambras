@@ -35,6 +35,21 @@ Page does not exist
         <div class="media">
             <div class="media-body">
                 <span class="text-muted float-right">{{ $comment->created_at->format('M d,Y \a\t h:i a') }}</span>
+                @if(!Auth::guest() && ($post->author_id == Auth::user()->id))
+                    <div class="btn-group">
+                        <button class="btn btn-danger btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Action
+                        </button>
+                        <form class="form-inline" method="post" action="/comment/delete/{{$comment->id}}">
+                            @csrf
+                            <div class="dropdown-menu">
+                                <div class="dropdown-item" onclick="this.closest('form').submit();return false;">
+                                        delete
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                @endif
                 {{ $comment->body }}
             </div>
         </div>

@@ -5,10 +5,27 @@ scalar Date @scalar(class: "Nuwave\\Lighthouse\\Schema\\Types\\Scalars\\Date")
 scalar DateTime @scalar(class: "Nuwave\\Lighthouse\\Schema\\Types\\Scalars\\DateTime")
 
 type Query {
+    """Get all users"""
     users: [User!]! @paginate(defaultCount: 10)
+    """Get User by id"""
     user(id: ID @eq): User @find
-    posts: [Post!]! @all
+    """Get all posts"""
+    posts: [Post!]! @paginate(defaultCount: 10)
     post(id: Int! @eq): Post @find
+    me: User! @guard @auth
+}
+
+# TODO add more mutation, this are just a few examples. Not all CRUD operations are configured yet.
+type Mutation {
+    createComment(post_id: ID! @rename(attribute: "on_post"), body: String!): Comment @create
+    createPost(title: String!, body: String!, slug: String!, active: Boolean = true): Post
+        @create
+        @guard
+        @inject(context: "user.id", name: "author_id")
+    updateUserName(name: String): User
+        @update
+        @guard
+        @inject(context: "user.id", name: "id")
 }
 
 type User {
@@ -37,5 +54,3 @@ type Comment {
     body: String!
     post: Post! @belongsTo
 }
-
-"TODO: inserts"

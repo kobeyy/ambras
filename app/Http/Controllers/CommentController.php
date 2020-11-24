@@ -9,6 +9,22 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 
 class CommentController extends Controller {
+
+    public function destroy(Request $request, $id)
+    {
+        $comment = Comment::find($id);
+        if($comment && ($comment->post->author_id == $request->user()->id))
+        {
+            $comment->delete();
+            $data['message'] = 'Comment deleted Successfully';
+        }
+        else
+        {
+            $data['errors'] = 'Invalid Operation. You have not sufficient permissions';
+        }
+        return back()->with($data);
+    }
+
     public function store(Request $request)
     {
         $input['on_post'] = $request->input('on_post');
